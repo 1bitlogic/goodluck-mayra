@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Goodluck Mayra</title>
+  <style>
+    @font-face {
+      font-family: 'Jersey 10';
+      src: url('assets/fuentes/jersey10.woff2') format('woff2');
+      font-display: block;
+    }
+    :root { --fondo: #14121f; --boton: #2b3a67; --boton-borde: #8fb3e8; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: var(--fondo); overflow: hidden; }
+    body {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Jersey 10', monospace; color: #fff;
+      -webkit-user-select: none; user-select: none; touch-action: none;
+    }
+    canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; }
+    #controles { display: none; }
+    body.tactil { justify-content: flex-start; }
+    body.tactil #controles {
+      display: flex; width: 100%; max-width: 560px; justify-content: space-between; align-items: center;
+      padding: 18px 22px; flex: 1;
+    }
+    .cruz { display: grid; grid-template-columns: repeat(3, 62px); grid-template-rows: repeat(3, 62px); }
+    .acciones { display: flex; gap: 18px; align-items: center; transform: rotate(-12deg); }
+    #controles button {
+      font: 700 24px 'Jersey 10', monospace; color: #fff;
+      background: var(--boton); border: 3px solid var(--boton-borde); border-radius: 12px;
+      touch-action: none;
+    }
+    #controles button:active { filter: brightness(1.4); }
+    .acciones button { width: 74px; height: 74px; border-radius: 50% !important; }
+    [data-k="up"] { grid-area: 1 / 2; } [data-k="left"] { grid-area: 2 / 1; }
+    [data-k="right"] { grid-area: 2 / 3; } [data-k="down"] { grid-area: 3 / 2; }
+  </style>
+</head>
+<body>
+  <canvas id="juego" aria-label="Juego de despedida para Mayra"></canvas>
+  <div id="controles" aria-hidden="true">
+    <div class="cruz">
+      <button data-k="up">▲</button>
+      <button data-k="left">◀</button>
+      <button data-k="right">▶</button>
+      <button data-k="down">▼</button>
+    </div>
+    <div class="acciones">
+      <button data-k="b">X</button>
+      <button data-k="a">Z</button>
+    </div>
+  </div>
+  <script src="mensajes.js"></script>
+  <script src="mapas.js"></script>
+  <script src="juego.js"></script>
+</body>
+</html>
